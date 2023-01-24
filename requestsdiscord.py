@@ -2,7 +2,7 @@ import requests
 import json
 import time
 from decimal import Decimal
-from settings import api_key,api_secret,discord_autho,balance_margin,testnet1
+from settings import api_key,api_secret,discord_autho,balance_margin,testnet1,discord_channel
 from binance.client import Client
 
 usdt_balance = 0
@@ -41,7 +41,7 @@ def retrieve_last_message(channelid):
 
         
     return content,instrument,target,stoploss,position
-content, instrument, target, stoploss,position = retrieve_last_message('637630528056459301')
+content, instrument, target, stoploss,position = retrieve_last_message(discord_channel)
 
 def send_message_to_user(message):
     # code to send message to user
@@ -56,7 +56,7 @@ while True:
             break
         print(usdt_balance)
     
-    content, instrument, target, stoploss, position = retrieve_last_message('637630528056459301')
+    content, instrument, target, stoploss, position = retrieve_last_message(discord_channel)
     modified_string = instrument.replace("$", "") + "USDT"
     print(modified_string)
     key = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
