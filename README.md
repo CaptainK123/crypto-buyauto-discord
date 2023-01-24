@@ -10,19 +10,21 @@ pip install requests
 SETUP:
 Go to settings.py and and you have to put your api key and secret.
 Тhe minimum purchase for one transaction must be over 5$ if it is less it will not go through you can change the margin from settings.
-
+You can change the order whether it is market or limit, i.e. buy it immediately or wait for the price that is written in discord as an entry
 
 HOW TO MAKE IT RUN 24/7:
 
 You can use google cloud and create VM machine(first 3 months free) - https://www.youtube.com/watch?v=azh8J0acu6A
 You can use Repl.it but be careful you have to protect your api keys in secret enviroment (Free) - https://www.youtube.com/watch?v=t7FsGcEUoRM
 
+HOW TO DO IT WITH MULTIPLE DISCORD CHANNELS:
+For now, it's best to just run multiple instances of the program with different Channel ID settings
 
 
 
 DISCLAIMER:
 The program is still in beta so you can test it at https://testnet.binancefuture.com/en/futures/ , but if you dont want that you can change it from True to False in settings.
-In the future I will make it possible to be from more than one server channel for now it only allows one and I will make stoploss and takeprofit as well as support in bitget
+
 
 You have to go trough all the coins in binance and select ISOLATED!!!!!!
 
