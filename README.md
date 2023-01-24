@@ -39,6 +39,9 @@ The program is still in beta so you can test it at https://testnet.binancefuture
 
 You have to go trough all the coins in binance and select ISOLATED!!!!!!
 
+
+SOON SUPPORT FOR BITGET
+
 CONTACT ME:
 
 If you have any questions you can message me in discord: Captain_Koalaツ#1665
