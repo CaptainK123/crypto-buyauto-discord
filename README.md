@@ -20,6 +20,22 @@ Go to settings.py and and you have to put your api key and secret.
 
 You can change the order whether it is market or limit, i.e. buy it immediately or wait for the price that is written in discord as an entry
 
+How to find discord channel ID:
+![Untitled](https://user-images.githubusercontent.com/123463421/214431737-33b5a65a-0c59-4d3d-86c7-29f03cac1ea0.png)
+
+
+How to find discord authorization key:
+Go to https://discord.com/
+CTRL-SHIFT-I to open dev tools
+Go to network tab
+Type "typing"
+Go to typing and find authorization:
+![image](https://user-images.githubusercontent.com/123463421/214433024-2350bffc-7a95-4272-9c45-4803df827f78.png)
+
+
+How to create API BINANCE:https://www.binance.com/en-ZA/support/faq/how-to-create-api-360002502072
+
+
 HOW TO MAKE IT RUN 24/7:
 
 You can use google cloud and create VM machine(first 3 months free) - https://www.youtube.com/watch?v=azh8J0acu6A
