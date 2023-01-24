@@ -63,8 +63,9 @@ while True:
     data = requests.get(key)  
     data = data.json()
     last_price = float(data['price'])
-    quantity = Decimal((usdt_balance * 0.15) / last_price)
-    quantity = float(round(quantity,2))
+    quantity = (usdt_balance * 0.15) / last_price
+    
+    quantity = float(round(quantity, 2))
     print(stoploss)
     print(target)
     print(instrument)
@@ -75,7 +76,7 @@ while True:
     if modified_string not in bought_symbols:
         target = float(target.split(" ")[0])
         if position == 'BUY/LONG':
-            buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='MARKET',quantity=quantity)       
+            buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='MARKET',quantity=quantity)     
             print(buyorder)
         elif position == 'SELL/SHORT':
             buyorder=client.futures_create_order(symbol=modified_string,side='SELL',type='MARKET',quantity=quantity)  
