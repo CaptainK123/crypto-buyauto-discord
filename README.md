@@ -7,9 +7,13 @@ The program takes the last message from a discord server and filters it and take
 INSTALATION:
 
 You must have python installed and 
+
 pip install python-binance 
+
 pip install jsonlib 
+
 pip install requests
+
 Download both files in 1 folder
 
 SETUP:
