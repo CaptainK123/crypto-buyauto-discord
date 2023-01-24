@@ -1,11 +1,15 @@
 # crypto-buyauto-discord
 A program that buys crypto in binance from signals in discord
 The program takes the last message from a discord server and filters it and takes the information, then uses the binance api to place the order.Therefore, if you run a program for the first time, it will make the order from the last message, so be careful.After 30 seconds it checks for a new message, if not it continues to wait for a new message
+
+
+
 INSTALATION:
-How to use it. You must have python installed and 
+You must have python installed and 
 pip install python-binance 
 pip install jsonlib 
 pip install requests
+Download both files in 1 folder
 
 SETUP:
 Go to settings.py and and you have to put your api key and secret.
