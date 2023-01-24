@@ -28,9 +28,11 @@ How to find discord authorization key:
 Go to https://discord.com/
 CTRL-SHIFT-I to open dev tools
 Go to network tab
-Type "typing"
+start writing in some chat
+In network tab filter type "typing"
 Go to typing and find authorization:
-![image](https://user-images.githubusercontent.com/123463421/214433024-2350bffc-7a95-4272-9c45-4803df827f78.png)
+![image](https://user-images.githubusercontent.com/123463421/214433666-ed22ffb3-40d8-4dc8-8889-0cf02bbb551d.png)
+
 
 
 How to create API BINANCE:https://www.binance.com/en-ZA/support/faq/how-to-create-api-360002502072
