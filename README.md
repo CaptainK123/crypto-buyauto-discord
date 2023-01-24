@@ -15,12 +15,15 @@ Download both files in 1 folder
 SETUP:
 
 Go to settings.py and and you have to put your api key and secret.
+
 Тhe minimum purchase for one transaction must be over 5$ if it is less it will not go through you can change the margin from settings.
+
 You can change the order whether it is market or limit, i.e. buy it immediately or wait for the price that is written in discord as an entry
 
 HOW TO MAKE IT RUN 24/7:
 
 You can use google cloud and create VM machine(first 3 months free) - https://www.youtube.com/watch?v=azh8J0acu6A
+
 You can use Repl.it but be careful you have to protect your api keys in secret enviroment (Free) - https://www.youtube.com/watch?v=t7FsGcEUoRM
 
 HOW TO DO IT WITH MULTIPLE DISCORD CHANNELS:
