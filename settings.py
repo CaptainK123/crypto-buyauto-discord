@@ -9,4 +9,4 @@ market_pos = 'LIMIT'
 #Тhe minimum purchase for one transaction must be over 5$ if it is less it will not go through you can change the margin from settings.
 #If your balance is $100 and you want per signal to be 5% of your balance, margin should be 0.06 
 balance_margin = 0.06
-
+leverage_change  = 20
