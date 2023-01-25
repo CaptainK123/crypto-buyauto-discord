@@ -100,25 +100,25 @@ while True:
 
         if position == 'BUY/LONG':
             if market_pos == 'MARKET':
-                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='MARKET',quantity=quantity2)     
+                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='MARKET',marginType='ISOLATED',quantity=quantity2)     
                 print(buyorder)
                 buyorderlimit1=client.futures_create_order(symbol=modified_string,side='SELL',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
                 print(buyorderlimit1)
                 
                 
             elif market_pos == 'LIMIT':
-                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='LIMIT',quantity=quantity_entry2,price = entry_price,timeInForce='GTC')       
+                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='LIMIT',marginType='ISOLATED',quantity=quantity_entry2,price = entry_price,timeInForce='GTC')       
                 print(buyorder)
                 buyorderlimit1=client.futures_create_order(symbol=modified_string,side='SELL',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
         
         elif position == 'SELL/SHORT':
             if market_pos == 'MARKET':
-                buyorder=client.futures_create_order(symbol=modified_string,side='SELL',type='MARKET',quantity=quantity2)  
+                buyorder=client.futures_create_order(symbol=modified_string,side='SELL',type='MARKET',marginType='ISOLATED',quantity=quantity2)  
                 print(buyorder)
                 buyorderlimit=client.futures_create_order(symbol=modified_string,side='BUY',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
               
             elif market_pos == 'LIMIT': 
-                sellorder=client.futures_create_order(symbol=modified_string,side='SELL',type='LIMIT',quantity=quantity_entry2,price= entry_price,timeInForce='GTC')       
+                sellorder=client.futures_create_order(symbol=modified_string,side='SELL',type='LIMIT',marginType='ISOLATED',quantity=quantity_entry2,price= entry_price,timeInForce='GTC')       
                 print(sellorder)
                 buyorderlimit=client.futures_create_order(symbol=modified_string,side='BUY',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
 
