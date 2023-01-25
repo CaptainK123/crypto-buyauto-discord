@@ -6,6 +6,8 @@ from settings import api_key,api_secret,discord_autho,balance_margin,testnet1,di
 from binance.client import Client
 import re
 import math
+
+number = 0
 quantity1 = 0
 quantity_entry1 = 0
 quantity2 = 0
@@ -72,7 +74,16 @@ while True:
     data = data.json()
     last_price = float(data['price'])
     
+    if modified_string in ["SHIBUSDT", "LUNCUSDT", "XECUSDT"]:
+        modified_string = "1000" + modified_string
 
+        
+        stoploss *= 1000
+        number = 1
+        
+        entry_price *=1000
+        
+        last_price *= 1000
 
 
 
@@ -86,7 +97,8 @@ while True:
         quantity_entry2= math.floor(quantity_entry1)
     elif quantity_entry1 <1:
         quantity_entry2 = quantity1 
-         
+
+    
 
     print(quantity2)
     print(position)
@@ -97,7 +109,14 @@ while True:
 
     if modified_string not in bought_symbols:
         target = float(target.split(" ")[0])
-
+        if number==1:
+            target*=1000
+            stoploss*=1000
+            stoploss = str(stoploss)
+            stoploss = stoploss[:stoploss.index(".") + 7]
+            
+            print(target)
+            print(stoploss)
         if position == 'BUY/LONG':
             if market_pos == 'MARKET':
                 buyorder=client.futures_create_order(symbol=modified_string,side='BUY',marginType='ISOLATED',type='MARKET',quantity=quantity2)     
