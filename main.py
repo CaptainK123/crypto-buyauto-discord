@@ -2,7 +2,7 @@ import requests
 import json
 import time
 from decimal import Decimal
-from settings import api_key,api_secret,discord_autho,balance_margin,testnet1,discord_channel,market_pos
+from settings import api_key,api_secret,discord_autho,balance_margin,testnet1,discord_channel,market_pos,leverage_change
 from binance.client import Client
 import re
 import math
@@ -106,7 +106,8 @@ while True:
     print(modified_string)
     print(stoploss)
     print(target)
-
+    client.futures_change_leverage(symbol=modified_string, leverage=leverage_change)
+    #client.futures_change_margin_type(symbol=modified_string,marginType = margin_type1)
     if modified_string not in bought_symbols:
         target = float(target.split(" ")[0])
         if number==1:
@@ -119,7 +120,7 @@ while True:
             print(stoploss)
         if position == 'BUY/LONG':
             if market_pos == 'MARKET':
-                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',marginType='ISOLATED',type='MARKET',quantity=quantity2)     
+                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',marginType='ISOLATED',isIsolated='TRUE',type='MARKET',quantity=quantity2)     
                 print(buyorder)
                 
                 buyorderlimit1=client.futures_create_order(symbol=modified_string,side='SELL',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
