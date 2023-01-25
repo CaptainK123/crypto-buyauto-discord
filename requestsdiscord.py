@@ -1,7 +1,6 @@
 import requests
 import json
 import time
-from decimal import Decimal
 from settings import api_key,api_secret,discord_autho,balance_margin,testnet1,discord_channel,market_pos
 from binance.client import Client
 import re
@@ -63,16 +62,26 @@ while True:
     content, instrument, target, stoploss, position, entry_price = retrieve_last_message(discord_channel)
     modified_string = instrument.replace("$", "") + "USDT"
     print(modified_string)
-    key = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+    key = "https://api.binance.com/api/v3/ticker/price?symbol=" + modified_string
+    print(key)
     data = requests.get(key)  
     data = data.json()
     last_price = float(data['price'])
-    quantity = (usdt_balance * balance_margin) / last_price
+    if usdt_balance>6:
+        quantity = (usdt_balance * balance_margin) / last_price
+    elif usdt_balance <5:
+        quantity = 0    
     
     quantity = float(round(quantity, 2))
-    quantity_entry =(usdt_balance * balance_margin) / entry_price
+    if usdt_balance>6:
+        quantity_entry =(usdt_balance * balance_margin) / entry_price
+    elif usdt_balance <5:
+        quantity = 0 
+    
+    
+    
     quantity_entry = float(round(quantity, 2))
-
+    
     print(stoploss)
     print(target)
     print(instrument)
