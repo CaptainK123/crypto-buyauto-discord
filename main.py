@@ -96,33 +96,35 @@ while True:
     print(target)
 
     if modified_string not in bought_symbols:
-        
+        target = float(target.split(" ")[0])
 
         if position == 'BUY/LONG':
             if market_pos == 'MARKET':
-                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='MARKET',marginType='ISOLATED',quantity=quantity2)     
+                buyorder=client.futures_create_order(symbol=modified_string,side='BUY',marginType='ISOLATED',type='MARKET',quantity=quantity2)     
                 print(buyorder)
+                
                 buyorderlimit1=client.futures_create_order(symbol=modified_string,side='SELL',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
                 print(buyorderlimit1)
-                
+                sellorder=client.futures_create_order(symbol=modified_string,side='SELL',type='TAKE_PROFIT_MARKET',stopPrice=target,closePosition='true')
+
                 
             elif market_pos == 'LIMIT':
                 buyorder=client.futures_create_order(symbol=modified_string,side='BUY',type='LIMIT',marginType='ISOLATED',quantity=quantity_entry2,price = entry_price,timeInForce='GTC')       
                 print(buyorder)
                 buyorderlimit1=client.futures_create_order(symbol=modified_string,side='SELL',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
-        
+                sellorder=client.futures_create_order(symbol=modified_string,side='SELL',type='TAKE_PROFIT_MARKET',stopPrice=target,closePosition='true')
         elif position == 'SELL/SHORT':
             if market_pos == 'MARKET':
                 buyorder=client.futures_create_order(symbol=modified_string,side='SELL',type='MARKET',marginType='ISOLATED',quantity=quantity2)  
                 print(buyorder)
                 buyorderlimit=client.futures_create_order(symbol=modified_string,side='BUY',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
-              
+                sellorder=client.futures_create_order(symbol=modified_string,side='BUY',type='TAKE_PROFIT_MARKET',stopPrice=target,closePosition='true')
             elif market_pos == 'LIMIT': 
                 sellorder=client.futures_create_order(symbol=modified_string,side='SELL',type='LIMIT',marginType='ISOLATED',quantity=quantity_entry2,price= entry_price,timeInForce='GTC')       
                 print(sellorder)
                 buyorderlimit=client.futures_create_order(symbol=modified_string,side='BUY',type='STOP_MARKET',stopPrice=stoploss,closePosition='true') 
-
- 
+                sellorder=client.futures_create_order(symbol=modified_string,side='BUY',type='TAKE_PROFIT_MARKET',stopPrice=target,closePosition='true')
+    
 
         
 
